@@ -7,7 +7,9 @@ Streamly is a full-featured video streaming web application built with the **MER
 ## Features
 
 - **User Authentication:** Secure JWT-based login with access and refresh tokens, and password hashing with bcrypt.  
-- **Video Management:** Upload videos, like/dislike, comment, reply, and subscribe to channels.  
+- **Video Management:** Upload videos, like/dislike, comment, reply, and subscribe to channels.
+- **Channel Management:** Create and manage user channels to organize content.  
+- **Watch History:** Tracks watched videos for easy access and recommendations. 
 - **RESTful API:** 40+ endpoints for videos, comments, subscriptions, and user profiles.  
 - **Responsive Frontend:** React.js interface with reusable components and dynamic state management.  
 - **Role-Based Access:** Channel/Page and user-level endpoints with input validation and error handling.  
