@@ -240,7 +240,7 @@ const addVideoToPlaylist = asyncHandler(async (req, res)=>{
     const { playlistId, videoId} = req.params;
 
     if(!isValidObjectId(playlistId)){
-        throw new ApiError(400, "Invalid playlist id")
+        throw new ApiError(400, "~Invalid playlist id")
     }
 
     if( !isValidObjectId(videoId) ){
