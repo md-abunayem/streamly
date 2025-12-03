@@ -15,9 +15,19 @@ const sidebarItems = [
 ];
 
 const sidebarLibrary = [
-  { icon: History, label: "Watch History", id: "history" },
-  { icon: ListVideo, label: "Playlists", id: "playlists" },
-  { icon: Heart, label: "Liked Videos", id: "liked" },
+  {
+    icon: History,
+    label: "Watched Videos",
+    id: "history",
+    path: "/watch-history",
+  },
+  {
+    icon: ListVideo,
+    label: "Playlists",
+    id: "playlists",
+    path: "/watch-history",
+  },
+  { icon: Heart, label: "Liked Videos", id: "liked", path: "/watch-history" },
 ];
 
 const channelLibrary = [
@@ -76,7 +86,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
             return (
               <Link
                 key={item.id}
-                to={"/"}
+                to={item.path}
                 className="flex items-center gap-6 hover:bg-[#135D66] px-3 py-4 rounded-lg transition "
                 onClick={closeSidebar}
               >

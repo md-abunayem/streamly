@@ -11,8 +11,8 @@ import {
 import ChannelPopUP from "../../components/Channel/ChannelPopUP";
 import CreatePlaylist from "../../components/Playlist/CreatePlaylist";
 import AddVideoToPlaylist from "../../components/Playlist/AddVideoToPlaylist";
-import { setIsEditPlaylistModalAppear } from "../../redux/slices/pageAppear";
 import EditPlaylistModal from "../../components/Playlist/editPlaylistModal";
+import CreateTweet from "../../components/Tweet/CreateTweet";
 
 const YourChannel = () => {
   const dispatch = useDispatch();
@@ -24,7 +24,8 @@ const YourChannel = () => {
   const [showCreateMenu, setShowCreateMenu] = useState(false);
   const [createPlaylistAppear, setCreatePlaylistAppear] = useState(false);
 
-  const { isAddVideoToPlaylistApear } = useSelector((state) => state.pageAppear);
+  const { isAddVideoToPlaylistApear,isCreateTweetAppear } = useSelector((state) => state.pageAppear);
+
 
   useEffect(() => {
     if (user?.userName) {
@@ -86,6 +87,9 @@ const YourChannel = () => {
 
       {/* Render EditPlaylist window */}
       {isEditPlaylistModalAppear && <EditPlaylistModal />}
+
+      {/* Render Create Tweet window */}
+      {isCreateTweetAppear && <CreateTweet/>}
 
       {/* ===== Tabs Section ===== */}
       <div className="mt-32 ml-6 md:ml-12 relative">

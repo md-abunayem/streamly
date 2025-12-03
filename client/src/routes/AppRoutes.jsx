@@ -13,6 +13,7 @@ import ChannelFollowing from "../pages/Channel/ChannelFollowing";
 import ChannelTweets from "../pages/Channel/ChannelTweets";
 import UploadVideoPage from "../pages/Upload/UploadVideoPage";
 import PlaylistVideosPage from "../pages/Playlist/PlaylistVideosPage";
+import WatchHistory from "../pages/WatchHistory/WatchHistoryPage";
 
 const AppRoutes = () => {
   return (
@@ -53,6 +54,14 @@ const AppRoutes = () => {
             element={
               <ProtectedRoute>
                 <UploadVideoPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/watch-history"
+            element={
+              <ProtectedRoute>
+                <WatchHistory />
               </ProtectedRoute>
             }
           />
