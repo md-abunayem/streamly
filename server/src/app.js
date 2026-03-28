@@ -6,11 +6,7 @@ const app = express();
 
 app.use(
   cors({
-<<<<<<< HEAD
-    origin: process.env.CORS_ORIGIN || "http://localhost:5173",
-=======
-    origin: "https://streamly-frontend-b2qd.onrender.com",
->>>>>>> 2832a7bfc7a77d3758ea591077ffccb8891492ee
+    origin: "http://localhost:5173" || process.env.CORS_ORIGIN,
     credentials: true,
   })
 );
