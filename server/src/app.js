@@ -6,7 +6,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "process.env.CORS_ORIGIN || 8000,
+    origin: "https://streamly-frontend-b2qd.onrender.com",
     credentials: true,
   })
 );
