@@ -11,7 +11,7 @@ import {
 import ChannelPopUP from "../../components/Channel/ChannelPopUP";
 import CreatePlaylist from "../../components/Playlist/CreatePlaylist";
 import AddVideoToPlaylist from "../../components/Playlist/AddVideoToPlaylist";
-import EditPlaylistModal from "../../components/Playlist/editPlaylistModal";
+import EditPlaylistModal from "../../components/Playlist/EditPlaylistModal";
 import CreateTweet from "../../components/Tweet/CreateTweet";
 
 const YourChannel = () => {
