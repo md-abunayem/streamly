@@ -23,7 +23,7 @@ export const fetchAllVideos = createAsyncThunk(
       sortType = "desc",
       userId = "", // optional: filter by channel/user
     } = {},
-    { rejectWithValue }
+    { rejectWithValue },
   ) => {
     try {
       const params = new URLSearchParams();
@@ -42,10 +42,10 @@ export const fetchAllVideos = createAsyncThunk(
       return response?.data?.data?.docs;
     } catch (error) {
       return rejectWithValue(
-        extractErrorMessage(error, "Failed to fetch videos.")
+        extractErrorMessage(error, "Failed to fetch videos."),
       );
     }
-  }
+  },
 );
 
 //Fetch all videos of a specific user(channel)
@@ -57,10 +57,10 @@ export const fetchUserVideos = createAsyncThunk(
       return response?.data?.data?.docs;
     } catch (error) {
       return rejectWithValue(
-        extractErrorMessage(error, "Failed to fetch user videos.")
+        extractErrorMessage(error, "Failed to fetch user videos."),
       );
     }
-  }
+  },
 );
 
 //Get Video by Id
@@ -72,10 +72,10 @@ export const getVideoById = createAsyncThunk(
       return response?.data?.data;
     } catch (error) {
       return rejectWithValue(
-        extractErrorMessage(error, "Failed to fetch video by Id.")
+        extractErrorMessage(error, "Failed to fetch video by Id."),
       );
     }
-  }
+  },
 );
 
 //Publish A Video
@@ -100,10 +100,10 @@ export const publishVideo = createAsyncThunk(
       return response?.data?.data;
     } catch (error) {
       return rejectWithValue(
-        extractErrorMessage(error, "Failed to publish video.")
+        extractErrorMessage(error, "Failed to publish video."),
       );
     }
-  }
+  },
 );
 
 //Update A Video
@@ -128,10 +128,10 @@ export const updateVideo = createAsyncThunk(
       return response?.data?.data;
     } catch (error) {
       return rejectWithValue(
-        extractErrorMessage(error, "Failed to update video.")
+        extractErrorMessage(error, "Failed to update video."),
       );
     }
-  }
+  },
 );
 
 //Delete Video
@@ -144,10 +144,10 @@ export const deleteVideo = createAsyncThunk(
       return response?.data?.message;
     } catch (error) {
       return rejectWithValue(
-        extractErrorMessage(error, "Failed to delete video.")
+        extractErrorMessage(error, "Failed to delete video."),
       );
     }
-  }
+  },
 );
 
 //Toggle Publish/Unpublish Video
@@ -156,15 +156,15 @@ export const togglePublishVideo = createAsyncThunk(
   async (videoId, { rejectWithValue }) => {
     try {
       const response = await apiClient.patch(
-        `/videos/toggle/publish/${videoId}`
+        `/videos/toggle/publish/${videoId}`,
       );
       return response?.data?.data;
     } catch (error) {
       return rejectWithValue(
-        extractErrorMessage(error, "Failed to toggle publish status.")
+        extractErrorMessage(error, "Failed to toggle publish status."),
       );
     }
-  }
+  },
 );
 
 //Slice
@@ -201,7 +201,7 @@ const videoSlice = createSlice({
       })
       .addCase(fetchAllVideos.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.videos = action.payload;
+        state.videos = Array.isArray(action.payload) ? action.payload : [];
         state.successMessage = "Videos fetched successfully";
         state.errorMessage = null;
       })

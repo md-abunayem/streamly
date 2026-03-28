@@ -13,9 +13,11 @@ const HomePage = () => {
   // extract q from URL
   const q = searchParams.get("q") || "";
 
-  const { isLoading, errorMessage, videos } = useSelector(
+  const { isLoading, errorMessage, videos = [] } = useSelector(
     (state) => state.video
   );
+
+  const safeVideos = Array.isArray(videos) ? videos : [];
 
   //can search by title, channel name
   useEffect(() => {
@@ -28,15 +30,15 @@ const HomePage = () => {
       {isLoading && <LoadingSpinner />}
       {errorMessage && <ErrorMessage message={errorMessage} />}
 
-      {!isLoading && videos.length > 0 && (
+      {!isLoading && safeVideos.length > 0 && (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {videos.map((video) => (
+          {safeVideos.map((video) => (
             <VideoThumbnailCard key={video._id} video={video} />
           ))}
         </div>
       )}
 
-      {!isLoading && !videos.length && (
+      {!isLoading && safeVideos.length === 0 && (
         <p className="text-center text-gray-400 mt-10 text-lg">
           No videos found for "<span className="font-semibold">{q}</span>"
         </p>
